@@ -6,13 +6,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    temp_content = params[:content].gsub! 'spoiler', ' '
-    @post = Post.create(title: params[:title], image_url: params[:image_url], content: temp_content) 
-
+    @post = Post.create(title: params[:title], image_url: params[:image_url], content: params[:content] ) 
   end
 
   def dashboard  
-   
   end
 
 end
