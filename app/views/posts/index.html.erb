@@ -1,2 +1,22 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<nav class="navbar navbar-light bg-light justify-content-between"> <a class="navbar-brand">Post</a>
+<%=  link_to "Agregar post", posts_dashboard_path, {class: 'btn btn-outline-success my-2 my-sm-0'} %>
+</nav>
+<table class="table">
+    <thead>
+        <td>Title</td>
+        <td>Created</td>
+        <td>Image</td>
+        <td>Content</td>
+
+    </thead>
+    <% @posts.each do |post| %>
+        <tr>
+            <td><%= post.title %></td>
+            <td><%= post.created_at %></td>
+            <td><%= image_tag post.image_url, width: "200px" %></td>
+            <td><%= post.content %></td>
+        </tr>
+    <% end %>
+
+</table>
+
