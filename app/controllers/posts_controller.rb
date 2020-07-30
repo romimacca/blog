@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(title: params[:title], image_url: params[:image_url], content: params[:content]) 
+    temp_content = params[:content].gsub! 'spoiler', ' '
+    @post = Post.create(title: params[:title], image_url: params[:image_url], content: temp_content) 
 
   end
 
